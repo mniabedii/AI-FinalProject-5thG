@@ -56,3 +56,9 @@ preprocess = ColumnTransformer(
 )
 
 preprocess.fit(X_train)
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+MODELS_DIR = os.path.join(BASE_DIR, "models")
+os.makedirs(MODELS_DIR, exist_ok=True)
+
+joblib.dump(preprocess, os.path.join(MODELS_DIR, "preprocess.pkl"))
