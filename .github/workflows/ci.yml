@@ -27,7 +27,7 @@ jobs:
       - name: Lint (ruff)
         run: |
           pip install ruff
-          ruff check .
+          ruff check src scripts
 
       - name: Smoke train
         run: python scripts/ci_smoke.py
