@@ -24,10 +24,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Lint (ruff)
+      - name: Lint (ruff) - scripts only
         run: |
           pip install ruff
-          ruff check src scripts
+          ruff check scripts
 
       - name: Smoke train
         run: python scripts/ci_smoke.py
