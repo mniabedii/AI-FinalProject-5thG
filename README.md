@@ -1,6 +1,6 @@
 # Bank Customer Churn Prediction
 
-This repository contains the **final project for the Artificial Intelligence course** at **K.N. Toosi University of Technology**.
+Final project for the Artificial Intelligence course at **K.N. Toosi University of Technology**.
 
 The goal of the project is to build a **binary classification** model that predicts whether a bank customer will **exit (churn)** based on their profile and account-related features. The workflow includes **data analysis (EDA)**, **data preprocessing**, training a **neural network model**, and evaluating performance using classification metrics.
 
@@ -9,27 +9,15 @@ The goal of the project is to build a **binary classification** model that predi
 - **Input:** Tabular customer data (numerical + categorical features)
 - **Output:** `Exited` (0 = not churned, 1 = churned)
 
-## Repository Structure
+## Problem
+Customer churn prediction is an important business problem.
+The goal is to detect customers who are likely to leave the bank using their profile and account-related features.
 
-```text
-.
-├── data/
-|   ├── raw/
-|   ├── processed/
-├── notebooks/
-|   ├── EDA.ipynb
-|   ├── experiments/
-├── src/
-|   ├── preprocessing/
-|   ├── models/
-|   ├── training/
-|   ├── evaluation/
-├── reports/
-|   ├── charts/
-|   ├── metrics/
-├── requirements.txt
-└── README.md
-```
+This is a supervised learning task on structured tabular data.
+
+Since churn prediction is sensitive to missing actual churners, we focused on improving the Precision–Recall balance.
+
+We observed the expected tradeoff between precision and recall and tuned the model accordingly.
 
 ## Methodology
 1. **Exploratory Data Analysis (EDA)**
@@ -47,11 +35,63 @@ The goal of the project is to build a **binary classification** model that predi
    - ROC-AUC
    - Confusion Matrix
 
+
+## Project Structure
+```
+.
+├── data/
+|   └── raw/Bank_Customers.csv
+|
+├── notebooks/
+|   ├── EDA.ipynb
+|   └── experiments/
+|    
+├── src/
+|   ├── preprocessing/
+|   ├── training/
+|   ├── evaluation/
+|   └── models/
+|
+├── reports/
+|   ├── charts/    
+|   └── metrics/
+|
+├── requirements.txt
+└── README.md
+````
+### Folder Description
+- **data/**
+
+    Contains the dataet used for training and evaluation
+
+- **notebooks/**
+    
+    Includes:
+    - EDA notebook
+    - All experimental notebooks
+    - Model comparison and analysis
+
+- **src/**
+    
+    Modular Python implementation of the pipeline:
+    
+    Stores:
+    - Training curves
+    - Confusion matrices
+    - Metric outputs
+    - Comparison charts
+
 ## Setup & Usage
 
-### 1) Install dependencies
-```bash
+### 1. Install dependencies:
+```
 pip install -r requirements.txt
 ```
-### 2) Run the notebooks
-Open the notebook(s) inside the notebooks/ folder.
+### 2. Run notebooks inside notebooks/ or use training scripts inside src/
+
+## Technologies
+- Python
+- TensorFlow / Keras
+- Scikit-learn
+- Pandas / NumPy
+- Matplotlib / WandB
